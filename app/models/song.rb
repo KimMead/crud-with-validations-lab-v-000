@@ -6,12 +6,12 @@ class Song < ActiveRecord::Base
 end
 
 def valid_release_year?
-  return true unless released 
+  return true unless released
 
   year = release_year.to_i
-  if year.zero? 
+  if year.zero?
     errors.add(:release_year, 'must be a number')
-  elsif year > Date.today.year 
+  elsif year > Date.today.year
     errors.add(:release_year, 'must be in the past')
-  end 
+  end
 end 
